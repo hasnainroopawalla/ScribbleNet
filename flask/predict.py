@@ -30,14 +30,14 @@ def initialize():
 
 def predict_doodle(img_path):
     class_names, model = initialize()
-    #img_path = 'static/b.png'
     img = load_img(img_path, target_size=(28,28))
+    
     img = ImageOps.invert(img)
     plt.imshow(img) 
+    plt.show()
     img_tensor = img_to_array(img)
 
-    plt.imshow(img_tensor/255)
-
+    
     img_tensor = cv2.cvtColor(img_tensor, cv2.COLOR_BGR2GRAY) # Convert channel to 1 (grayscale)
     img_tensor = np.expand_dims(img_tensor, axis=2) # Add last channel as 1  (28,28) to (28,28,1)
     img_tensor = np.expand_dims(img_tensor, axis=0) # Add 1 more channel at start to specify number of input images (1,28,28,1)

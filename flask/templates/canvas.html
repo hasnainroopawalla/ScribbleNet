@@ -1,4 +1,9 @@
 <html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+
     <script type="text/javascript">
     var canvas, ctx, flag = false,
         prevX = 0,
@@ -83,7 +88,21 @@
         var dataURL = canvas.toDataURL();
 
         var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
-        window.location.href=image; // it will save locally
+        console.log(image);
+       
+        $.ajax({
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            url: "/saveimg",
+            traditional: "true",
+            data: image,//JSON.stringify({image}),
+            dataType: "json",
+            });
+            setTimeout(function() {
+                location.reload();
+            }, 1000);
+    
+        //window.location.href = image; // it will save locally
 
         document.getElementById("canvasimg").src = dataURL;
         document.getElementById("canvasimg").style.display = "inline";
