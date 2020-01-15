@@ -9,7 +9,7 @@ import os
 app = Flask(__name__)
 
 objs = []
-
+#e
 @app.route("/")
 def firstpage():
     global objs
