@@ -1,4 +1,5 @@
-from flask import Flask,flash,jsonify,request,render_template,redirect,url_for
+import predict
+from flask import Flask, flash, jsonify, request, render_template, redirect, url_for
 from PIL import Image
 import numpy
 import cv2
@@ -9,13 +10,14 @@ import os
 app = Flask(__name__)
 
 objs = []
-#e
+
 @app.route("/")
 def firstpage():
-    global objs
-    return render_template('index.html',objs=objs)
+    a = predict.predict_doodle('static/b.png')
+    print(a)
+    return render_template('canvas.html')
 
-@app.route("/getobjects",methods=["GET", "POST"])
+""" @app.route("/getobjects",methods=["GET", "POST"])
 def objectdetection():
     import maskrcnn
     import yolo
@@ -53,7 +55,7 @@ def objectdetection():
     # return render_template('display.html',maskout=maskout, yoloout=yoloout)
 
 
-    return render_template('display.html',yolotime=round(yolotime,3),masktime=round(masktime,3),maskrcnn_objs=maskrcnn_objs,yolo_objs=yolo_objs)
+    return render_template('display.html',yolotime=round(yolotime,3),masktime=round(masktime,3),maskrcnn_objs=maskrcnn_objs,yolo_objs=yolo_objs) """
 
 if __name__ == "__main__":
     app.run(host= '0.0.0.0', port=5000, debug=True)
