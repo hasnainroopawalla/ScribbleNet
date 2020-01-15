@@ -14,9 +14,7 @@ objs = []
 
 @app.route("/")
 def firstpage():
-    
-    #os.rename('static/download','static/img.png') 
-    return render_template('interface.html')
+    return render_template('canvas.html')
 
 @app.route("/doodlepredict",methods=["GET", "POST"])
 def predictedclasses():
