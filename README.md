@@ -8,6 +8,10 @@ The number of images used per class is limited to 16000 to increase training spe
 With the given architecture I was able to obtain 94.29% accuracy (Can be improved by using more images)
 
 
-Instructions:
+# Instructions:
 
 Run the Doodle.ipynb on Google Colab (GPU for more disk memory)
+
+# Instructions for Flask:
+
+In the command prompt, type 'python run.py'. Navigate to 'localhost:5000' on your browser and begin doodling!
