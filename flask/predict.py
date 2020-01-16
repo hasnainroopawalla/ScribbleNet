@@ -33,8 +33,8 @@ def predict_doodle(img_path):
     img = load_img(img_path, target_size=(28,28))
     
     img = ImageOps.invert(img)
-    plt.imshow(img) 
-    plt.show()
+    #plt.imshow(img) 
+    #plt.show()
     img_tensor = img_to_array(img)
 
     
@@ -47,9 +47,10 @@ def predict_doodle(img_path):
 
     pred = model.predict(img_tensor)[0]
     ind = (-pred).argsort()[:5]  
-    pred_accuracy = sorted(pred, reverse = True)[:5]  # Accuracy of the top 5 predictions
+    acc = sorted(pred, reverse = True)[:5]  # Accuracy of the top 5 predictions
     objs = [class_names[x] for x in ind]
-    print(objs)
-    print(pred_accuracy)
-    return objs
-# print('fdd')
+    pred_accuracy = []
+    for i in acc:
+        pred_accuracy.append(round((i*100),2))
+
+    return objs,pred_accuracy
