@@ -1,8 +1,8 @@
 import os
 import glob
 import numpy as np
-from tensorflow import keras 
-import tensorflow as tf
+from tensorflow import keras #keras == 2.2.5
+import tensorflow as tf  #tensorflow == 1.15.0
 import matplotlib.pyplot as plt
 from random import randint
 from PIL import Image, ImageOps
