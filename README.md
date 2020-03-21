@@ -24,4 +24,4 @@ In the command prompt, type 'python run.py'. Navigate to 'localhost:5000' on you
 ![Headphones](https://github.com/hasnainroopawalla/Doodle-Classifier/blob/master/images/Capture2.JPG)
 ![Flower](https://github.com/hasnainroopawalla/Doodle-Classifier/blob/master/images/Capture3.JPG)
 ![Fan](https://github.com/hasnainroopawalla/Doodle-Classifier/blob/master/images/Capture4.JPG)
-![Lightning](https://github.com/hasnainroopawalla/Doodle-Classifier/blob/master/images/Capture5.JPG)
+![Lightning](https://github.com/hasnainroopawalla/Doodle-Classifier/blob/master/images/Capture6.JPG)
