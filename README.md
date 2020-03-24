@@ -12,16 +12,31 @@ With the given architecture I was able to obtain 94.29% accuracy (Can be improve
 
 Run the Doodle.ipynb on Google Colab (GPU for more disk memory)
 
-
 # Instructions for Flask:
-
-In the command prompt, type 'python run.py'. Navigate to 'localhost:5000' on your browser and begin doodling!
-
+In the command prompt:
+```
+python run.py
+```
+Now, Navigate to 'localhost:5000' on your browser
 
 # Test Results:
 
-![Suitcase](https://github.com/hasnainroopawalla/Doodle-Classifier/blob/master/images/Capture1.JPG)
-![Headphones](https://github.com/hasnainroopawalla/Doodle-Classifier/blob/master/images/Capture2.JPG)
-![Flower](https://github.com/hasnainroopawalla/Doodle-Classifier/blob/master/images/Capture3.JPG)
-![Fan](https://github.com/hasnainroopawalla/Doodle-Classifier/blob/master/images/Capture4.JPG)
-![Lightning](https://github.com/hasnainroopawalla/Doodle-Classifier/blob/master/images/Capture6.JPG)
+Suitcase:
+
+![Suitcase](https://github.com/hasnainroopawalla/Doodle-Classifier/blob/master/images/suitcase.gif)
+
+Headphones:
+
+![Headphones](https://github.com/hasnainroopawalla/Doodle-Classifier/blob/master/images/headphones.gif)
+
+Lightning:
+
+![Lightning](https://github.com/hasnainroopawalla/Doodle-Classifier/blob/master/images/lightning.gif)
+
+Fan:
+
+![Fan](https://github.com/hasnainroopawalla/Doodle-Classifier/blob/master/images/fan.gif)
+
+Car:
+
+![Car](https://github.com/hasnainroopawalla/Doodle-Classifier/blob/master/images/car.gif)
