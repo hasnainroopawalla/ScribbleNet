@@ -7,12 +7,12 @@
     <body>
         
         
-        <center><h1>Draw a Doodle in the Canvas</h1></center>
+        <center><h1>Doodle Classifier</h1></center>
         <div style="width: 800px; margin: 0 auto; justify-content: center; align-items: center">
             <canvas width="280" height="280" id="canvas" style="border:1px solid black; float: left">canvas</canvas>
             
             <div style="width: 230px; height: 280px; float: left; position:relative">
-                <input type="button" onclick="uploadEx()" value="Detect" style="width: 50%; position:absolute; top: 30%; left: 25%"/> 
+                <!-- <input type="button" onclick="uploadEx()" value="Detect" style="width: 50%; position:absolute; top: 30%; left: 25%"/>  -->
                 <input type="button" onclick="clearCanvas()" value="Clear" style="width: 50%; position:absolute; top: 50%; left: 25%"/>
             </div>
             
@@ -67,6 +67,7 @@
             
             canvas.addEventListener('mouseup', function() {
                 canvas.removeEventListener('mousemove', onPaint, false);
+                uploadEx();
             }, false);
             
             var onPaint = function() {
@@ -84,6 +85,8 @@
                 context.rect(0, 0, 280, 280);
                 context.fillStyle = 'white';
                 context.fill();
+                var div = document.getElementById("op");
+                div.innerHTML = '';
             }
         </script>
  
@@ -115,7 +118,7 @@
                 txt = a.slice(0,5);  //Objects
                 acc = a.slice(5,10); //Prediction Accuracy
                 for(var i=0;i<5;i++){   
-                    div.innerHTML += txt[i]+" "+acc[i]+"%"+ "<br/>";
+                    div.innerHTML += txt[i]+" | "+acc[i]+"%"+ "<br/>";
                 }
             },
         });    
