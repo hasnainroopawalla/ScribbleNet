@@ -12,8 +12,20 @@ from keras.preprocessing.image import load_img
 
 def initialize():
     model_path = '../models/'
-    model = tf.keras.models.load_model(model_path+'100_classes_16000_per_class.h5')
-
+    model = tf.keras.models.load_model(model_path+'old.h5')
+##    class_names = ['moon', 'apple', 'shovel', 'anvil', 'candle', 'tooth', 'book', 'key', 'syringe', 'sword',
+##                   'bicycle', 'alarm_clock', 'clock', 'table', 'grapes', 'square', 'pizza', 'face', 'beard',
+##                   'helmet', 'hammer', 'pants', 'coffee_cup', 'wheel', 'mountain', 'wristwatch', 'hot_dog',
+##                   'stop_sign', 'spider', 'airplane', 'circle', 'donut', 'bench', 'door', 'sock', 'saw',
+##                   'cookie', 'cat', 'cup', 'dumbbell', 'mushroom', 'lightning', 'lollipop', 'line', 'triangle',
+##                   'bird', 'pencil', 'knife', 'light_bulb', 'frying_pan', 'traffic_light', 'diving_board',
+##                   'scissors', 'rainbow', 'suitcase', 'hat', 'power_outlet', 'smiley_face', 'bread', 'bridge',
+##                   'sun', 'basketball', 'screwdriver', 'baseball', 'umbrella', 'chair', 'fan', 't-shirt',
+##                   'eye', 'paper_clip', 'radio', 'star', 'snake', 'cloud', 'spoon', 'microphone', 'rifle',
+##                   'ice_cream', 'eyeglasses', 'tree', 'tennis_racquet', 'axe', 'laptop', 'headphones',
+##                   'drums', 'tent', 'shorts', 'envelope', 'broom', 'cell_phone', 'ladder', 'camera', 'bed',
+##                   'car', 'pillow', 'flower', 'baseball_bat', 'moustache', 'ceiling_fan', 'butterfly']
+    
     class_names = ['saw', 'coffee_cup', 'power_outlet', 'microphone', 'triangle', 'cat', 'paper_clip',
                 'drums', 'diving_board', 'sun', 'scissors', 'butterfly', 'ladder', 'beard', 'helmet',
                 'bicycle', 'face', 'eye', 'syringe', 'bed', 'smiley_face', 'sword', 'door', 'spider',
@@ -46,7 +58,7 @@ def predict_doodle(img_path):
     #print(img_tensor.shape)
 
     pred = model.predict(img_tensor)[0]
-    ind = (-pred).argsort()[:5]  
+    ind = (-pred).argsort()[:5]
     acc = sorted(pred, reverse = True)[:5]  # Accuracy of the top 5 predictions
     objs = [class_names[x] for x in ind]
     pred_accuracy = []
