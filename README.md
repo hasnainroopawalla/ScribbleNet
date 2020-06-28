@@ -5,7 +5,7 @@ The 100_classes.txt consists of 100 common classes (a subset of the 345 original
 
 The number of images used per class is limited to 16000 to increase training speed
 
-With the given architecture I was able to obtain 94.29% accuracy (Can be improved by using more training images)
+With my architecture I was able to obtain 96% accuracy
 
 
 # Instructions to train the model:
