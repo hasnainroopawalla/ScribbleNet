@@ -1,4 +1,4 @@
-# Doodle-Classifier
+# ScribbleNet
 The notebook includes downloading the classes.txt file as well as the entire dataset of 'Quick Draw' images
 
 The 100_classes.txt consists of 100 common classes (a subset of the 345 original classes)
