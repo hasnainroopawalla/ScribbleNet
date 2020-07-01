@@ -1,6 +1,9 @@
-# ScribbleNet
+# ScribbleNet - Play Store
 
-Download the Android App form the Play Store: https://play.google.com/store/apps/details?id=doodle.classifier
+Download the App here: Download the Android App form the Play Store: https://play.google.com/store/apps/details?id=doodle.classifier
+
+
+# ScribbleNet
 
 The notebook includes downloading the classes.txt file as well as the entire dataset of 'Quick Draw' images
 
