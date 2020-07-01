@@ -1,6 +1,6 @@
-# ScribbleNet - Play Store
+# ScribbleNet - Play Store (Android)
 
-Download the App here: Download the Android App form the Play Store: https://play.google.com/store/apps/details?id=doodle.classifier
+Download the Android App here: https://play.google.com/store/apps/details?id=doodle.classifier
 
 
 # ScribbleNet
