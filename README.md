@@ -25,7 +25,21 @@ python run.py
 ```
 Now, Navigate to 'localhost:5000' on your browser
 
-# Test Results:
+# Android App:
+
+Cup:
+
+![Cup](https://github.com/hasnainroopawalla/ScribbleNet/blob/master/images/cup.gif)
+
+Envelope:
+
+![Envelope](https://github.com/hasnainroopawalla/Doodle-Classifier/blob/master/images/envelope.gif)
+
+T-shirt:
+
+![Tshirt](https://github.com/hasnainroopawalla/Doodle-Classifier/blob/master/images/tshirt.gif)
+
+# Flask App:
 
 Suitcase:
 
@@ -39,14 +53,4 @@ Lightning:
 
 ![Lightning](https://github.com/hasnainroopawalla/Doodle-Classifier/blob/master/images/lightning.gif)
 
-Cup:
 
-![Cup](https://github.com/hasnainroopawalla/ScribbleNet/blob/master/images/cup.gif)
-
-Envelope:
-
-![Envelope](https://github.com/hasnainroopawalla/Doodle-Classifier/blob/master/images/envelope.gif)
-
-T-shirt:
-
-![Tshirt](https://github.com/hasnainroopawalla/Doodle-Classifier/blob/master/images/tshirt.gif)
