@@ -52,5 +52,3 @@ Headphones:
 Lightning:
 
 ![Lightning](https://github.com/hasnainroopawalla/Doodle-Classifier/blob/master/images/lightning.gif)
-
-

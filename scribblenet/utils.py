@@ -13,7 +13,7 @@ def data_uri_to_cv2_img(uri):
     : returns   : OpenCV image
     """
 
-    encoded_data = uri.split(',')[1]
+    encoded_data = uri.split(",")[1]
     nparr = np.fromstring(base64.b64decode(encoded_data), np.uint8)
     img = cv2.imdecode(nparr, cv2.IMREAD_GRAYSCALE)
     return img
