@@ -1,3 +1,6 @@
 tensorflow
 keras
 flask
+hydra-core
+Pillow
+opencv-python
