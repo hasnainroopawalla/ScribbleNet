@@ -112,6 +112,7 @@
             cache: false,
             processData: false,
             success: function(data) {
+                alert(data);
                 var div = document.getElementById("op");
                 div.innerHTML = '';
                 a = data.substring(1,data.length-1).replace(/'/g, '').split(',');

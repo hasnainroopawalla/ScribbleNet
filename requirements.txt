@@ -1,6 +1,6 @@
 tensorflow
 keras
 flask
-hydra-core
 Pillow
+pydantic
 opencv-python
