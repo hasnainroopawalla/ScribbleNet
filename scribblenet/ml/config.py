@@ -5,7 +5,7 @@ import os
 
 class MLConfig(BaseSettings):
     model_path: str = os.path.join(os.path.dirname(__file__), "models/e25.h5")
-    
+
     classes: List[str] = [
         "Smiley Face",
         "Alarm Clock",

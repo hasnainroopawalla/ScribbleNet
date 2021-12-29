@@ -33,7 +33,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def firstpage():
-    return render_template("canvas.html")
+    return render_template("test.html")
 
 
 @app.route("/predict", methods=["POST"])
