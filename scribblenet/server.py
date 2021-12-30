@@ -4,42 +4,22 @@ import os
 import time
 import uuid
 
-import cv2
-import numpy as np
-import tensorflow as tf  # tensorflow == 1.15.0
-from flask import (
-    Flask,
-    redirect,
-    render_template,
-    request,
-    json,
-    jsonify,
-    send_from_directory,
-    url_for,
-)
-from keras.models import Sequential, load_model
-from keras.preprocessing.image import ImageDataGenerator, img_to_array, load_img
-from PIL import Image, ImageOps
-from tensorflow import keras  # keras == 2.2.5
-from io import BytesIO
-import io
-from typing import List, Dict, Union, ByteString, Any
+from flask import Flask, render_template, request, jsonify
 
 from scribblenet.ml.prediction import predict
 
-input_img_path = "static/input_img.png"
 app = Flask(__name__)
 
 
 @app.route("/")
 def firstpage():
-    return render_template("canvas.html")
+    return render_template("test.html")
 
 
 @app.route("/predict", methods=["POST"])
 def doodle_predict():
-    image_str = request.form.get("data")
-    return jsonify(predict(image_str))
+    image_string = request.form["image_string"]
+    return jsonify(predict(image_string))
 
 
 # @app.route("/doodlepredict", methods=["GET", "POST"])
@@ -53,4 +33,4 @@ def doodle_predict():
 
 
 def main():
-    app.run(host="0.0.0.0", port=9000, debug=False)
+    app.run(host="0.0.0.0", port=9000, debug=True)
