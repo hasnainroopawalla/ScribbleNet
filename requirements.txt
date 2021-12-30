@@ -2,5 +2,4 @@ tensorflow
 keras
 flask
 Pillow
-pydantic
 opencv-python

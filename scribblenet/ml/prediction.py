@@ -1,8 +1,11 @@
+import warnings
+from collections import Counter
 from typing import Dict, List, Tuple
-from scribblenet.preprocessing.preprocessor import PreProcessor
-from scribblenet.ml.utils import load_model
+
 import numpy as np
 from scribblenet.ml.config import MLConfig
+from scribblenet.ml.utils import load_model
+from scribblenet.preprocessing.preprocessor import PreProcessor
 
 
 def _get_best_indices_and_accuracies(
@@ -18,39 +21,49 @@ def _get_best_indices_and_accuracies(
         List[int]; A List of indices of the best predicted classes.
         List[float]: A List of the corresponding probabilities for the best predicted classes.
     """
+    warnings.warn(
+        "This method is outdated due to a conceptual change in the prediction logic.",
+        DeprecationWarning,
+    )
     best_class_indices = prediction.argsort()[-num_best_classes:][::-1]
     probabilities = prediction[best_class_indices]
     return list(best_class_indices), list(probabilities)
 
 
-def _get_best_class_names(best_class_indices: List[int]) -> List[str]:
-    """Fetches the readable class names based on the indices.
-
-    Args:
-        best_class_indices (List[int]): A List of indices of the best predicted classes.
-
-    Returns:
-        List[str]: A List of class names with the highest predicted probabilities.
-    """
-    return [MLConfig().classes[index] for index in best_class_indices]
-
-
-def _map_class_names_to_probabilities(
-    best_class_names: List[str], probabilities: List[float]
-) -> Dict[str, float]:
+def _map_class_names_to_probabilities(probabilities: List[float]) -> Dict[str, float]:
     """Creates a dictionary mapping readable class names to their corresponding probabilites.
 
     Args:
-        best_class_names (List[str]): A List of class names with the highest predicted probabilities.
         probabilities (List[float]): A List of the probabilities for the best predicted classes.
 
     Returns:
-        Dict[str, float]: A dictionary mapping readable class names to their corresponding probabilites.
+        Dict[str, float]: A dictionary mapping all readable class names to their corresponding probabilites.
     """
     return {
-        class_name: int(probability)
-        for class_name, probability in zip(best_class_names, probabilities)
+        class_name: probability
+        for class_name, probability in zip(MLConfig.classes, probabilities)
     }
+
+
+def _get_best_class_names(
+    class_names_to_probabilities: Dict[str, float], num_best_classes: int
+) -> List[str]:
+    """Returns 'num_best_classes' class names with the best probabilities.
+
+    Args:
+        class_names_to_probabilities (Dict[str, float]): A dictionary mapping predicted readable class names to their corresponding probabilites.
+        num_best_classes (int): The number of classes with the highest probability to be returned.
+
+    Returns:
+        List[str]: A List of size 'num_best_classes' of the best predicted class names.
+    """
+    best_class_names_to_probabilities = {
+        class_name: probability
+        for class_name, probability in Counter(
+            class_names_to_probabilities
+        ).most_common()[:num_best_classes]
+    }
+    return list(best_class_names_to_probabilities.keys())
 
 
 def predict(image: str, num_best_classes: int = 5) -> List[str]:
@@ -67,7 +80,6 @@ def predict(image: str, num_best_classes: int = 5) -> List[str]:
     processed_image = P.preprocess(image, job_type="predict")
     model = load_model()
     prediction = model.predict(processed_image)[0]
-    best_class_indices, probabilities = _get_best_indices_and_accuracies(
-        prediction, num_best_classes
-    )
-    return _get_best_class_names(best_class_indices)
+
+    class_names_to_probabilities = _map_class_names_to_probabilities(prediction)
+    return _get_best_class_names(class_names_to_probabilities, num_best_classes)

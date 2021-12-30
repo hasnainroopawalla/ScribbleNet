@@ -5,4 +5,4 @@ from scribblenet.ml.config import MLConfig
 
 
 def load_model() -> Sequential:
-    return tf.keras.models.load_model(MLConfig().model_path)
+    return tf.keras.models.load_model(MLConfig.model_path)
