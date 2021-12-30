@@ -27,12 +27,14 @@ import {
     ctx.fillStyle = 'white';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
     ctx.strokeStyle = "#000";
-    ctx.lineWidth = 15;
+    ctx.lineWidth = 30;
 
     // Set up the UI
-    var clearBtn = document.getElementById("sig-clearBtn");
-    var submitBtn = document.getElementById("sig-submitBtn");
+    var clearBtn = document.getElementById("clearBtn");
+    var submitBtn = document.getElementById("predictBtn");
 
     clearBtn.addEventListener("click", function (e) {
         clearCanvas();

@@ -116,7 +116,9 @@
             $.ajax({
                 type: 'POST',
                 url: '/predict',
-                data: {'image_string': dataURL},
+                data: {
+                    'image_string': dataURL
+                },
                 success: function (data) {
                     alert(data);
                     var div = document.getElementById("op");

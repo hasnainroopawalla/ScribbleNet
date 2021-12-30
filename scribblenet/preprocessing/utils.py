@@ -55,7 +55,6 @@ def resize_image(image: PngImagePlugin.PngImageFile) -> Image.Image:
     Returns:
         Image.Image: The resized image.
     """
-    image.show()
     return image.resize((28, 28))
 
 

@@ -1,55 +1,66 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="Hasnain Roopawalla">
-    <title>ScribbleNet</title>
-    <!-- Styles -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <style>
-        html, body {
-            height: 100%;
-        }
-        #sig-canvas {
-            border: 1px dotted #CCCCCC;
-            border-radius: 5px;
-            cursor: crosshair;
-            width: 100%;
-            height: auto;
-        }
-       
-    </style>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="Hasnain Roopawalla">
+  <title>ScribbleNet</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
 </head>
+
 <body>
-    <!-- Content -->
-    <div class="container-fluid h-100 ">
-        <div class="row justify-content-center h-100">
-          <div class="col-sm-4 hidden-md-down" id="yellow">
-            <button class="btn btn-primary" id="sig-submitBtn">
-                Submit Signature
-              </button>
-              <button class="btn btn-default" id="sig-clearBtn">
-                Clear Signature
-            </button>
-          </div>
-          <div class="col-sm-8 col-md-8 col-lg-8 col-xl-8" id="canvas-parent">
-            <canvas id="sig-canvas">
-                Get a better browser, bro.
-            </canvas>
-          </div>
-        </div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">ScribbleNet</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" target="_blank" href="https://github.com/hasnainroopawalla/ScribbleNet">GitHub</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" target="_blank" href="https://www.hasnainr.com/projects/scribblenet.html">Documentation</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        <a href="mailto:hasnain.roopawalla@gmail.com">Hasnain Roopawalla</a>
+      </span>
+    </div>
+  </nav>
+
+  <div class="container-fluid h-100 p-4">
+    <div class="row justify-content-center h-100">
+      <div class="col-sm-4 hidden-md-down">
+        <button class="btn btn-primary" id="predictBtn">
+          Predict
+        </button>
+        <button class="btn btn-default" id="clearBtn">
+          Clear
+        </button>
       </div>
+      <div class="col-sm-5 col-md-8 col-lg-8 col-xl-8" id="canvas-parent">
+        <canvas id="sig-canvas">
+          Browser not supported.
+        </canvas>
+      </div>
+    </div>
+  </div>
 
-
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script type="module" src="{{url_for('static', filename='js/canvas.js')}}"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script type="module" src="{{url_for('static', filename='js/canvas.js')}}"></script>
 
 </body>
+
 </html>
