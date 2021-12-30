@@ -18,8 +18,7 @@ import {
 
     // Set up the canvas
     var canvas = document.getElementById("sig-canvas");
-    // canvas.width = document.body.clientWidth;
-    // canvas.height = document.body.clientHeight;
+
     var parent = document.getElementById("canvas-parent");
     canvas.width = parent.offsetWidth;
     canvas.height = parent.offsetHeight;

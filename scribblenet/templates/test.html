@@ -9,9 +9,9 @@
     <meta name="author" content="Hasnain Roopawalla">
     <title>ScribbleNet</title>
     <!-- Styles -->
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
-        html,body {
+        html, body {
             height: 100%;
         }
         #sig-canvas {
@@ -21,29 +21,28 @@
             width: 100%;
             height: auto;
         }
+       
     </style>
 </head>
 <body>
     <!-- Content -->
-    <div class="container">
-        <div class="row no-gutters">
-            <div class="col-md-8 mx-auto" id="canvas-parent" style="border: red 1px solid;">
-                <div class="text-center">
-                <canvas id="sig-canvas">
-                    Get a better browser, bro.
-                </canvas>
-            </div>
-            </div>
-            <div class="col-md-4">
-                <button class="btn btn-primary" id="sig-submitBtn">
-                    Submit Signature
-                  </button>
-                  <button class="btn btn-default" id="sig-clearBtn">
-                    Clear Signature
-                </button>
-            </div>
+    <div class="container-fluid h-100 ">
+        <div class="row justify-content-center h-100">
+          <div class="col-sm-4 hidden-md-down" id="yellow">
+            <button class="btn btn-primary" id="sig-submitBtn">
+                Submit Signature
+              </button>
+              <button class="btn btn-default" id="sig-clearBtn">
+                Clear Signature
+            </button>
+          </div>
+          <div class="col-sm-8 col-md-8 col-lg-8 col-xl-8" id="canvas-parent">
+            <canvas id="sig-canvas">
+                Get a better browser, bro.
+            </canvas>
+          </div>
         </div>
-    </div>
+      </div>
 
 
     <!-- Scripts -->
