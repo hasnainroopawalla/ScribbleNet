@@ -11,63 +11,41 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <style>
-        body {
-            padding-top: 20px;
-            padding-bottom: 20px;
+        html,body {
+            height: 100%;
         }
-
         #sig-canvas {
-            border: 2px dotted #CCCCCC;
+            border: 1px dotted #CCCCCC;
             border-radius: 5px;
             cursor: crosshair;
-        }
-
-        #sig-dataUrl {
             width: 100%;
+            height: auto;
         }
     </style>
 </head>
 <body>
     <!-- Content -->
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>E-Signature</h1>
-                <p>Sign in the canvas below and save your signature as an image!</p>
+        <div class="row no-gutters">
+            <div class="col-md-8 mx-auto" id="canvas-parent" style="border: red 1px solid;">
+                <div class="text-center">
+                <canvas id="sig-canvas">
+                    Get a better browser, bro.
+                </canvas>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                 <canvas id="sig-canvas" width="280" height="280">
-                     Get a better browser, bro.
-                 </canvas>
-             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
+            </div>
+            <div class="col-md-4">
                 <button class="btn btn-primary" id="sig-submitBtn">
-                  Submit Signature
+                    Submit Signature
+                  </button>
+                  <button class="btn btn-default" id="sig-clearBtn">
+                    Clear Signature
                 </button>
-                <button class="btn btn-default" id="sig-clearBtn">
-                  Clear Signature
-              </button>
-            </div>
-        </div>
-        <br/>
-        <div class="row">
-            <div class="col-md-12">
-                <textarea id="sig-dataUrl" class="form-control" rows="5">
-                  Data URL for your signature will go here!
-                </textarea>
-            </div>
-        </div>
-        <br/>
-        <div class="row">
-            <div class="col-md-12">
-                <img id="sig-image" src="" alt="Your signature will go here!"/>
             </div>
         </div>
     </div>
+
+
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

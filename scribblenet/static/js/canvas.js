@@ -1,49 +1,55 @@
-import { predict_doodle } from './api.js';
+import {
+    predict_doodle
+} from './api.js';
 
-(function() {
+(function () {
 
     // Get a regular interval for drawing to the screen
     window.requestAnimFrame = (function (callback) {
         return window.requestAnimationFrame ||
-                    window.webkitRequestAnimationFrame ||
-                    window.mozRequestAnimationFrame ||
-                    window.oRequestAnimationFrame ||
-                    window.msRequestAnimaitonFrame ||
-                    function (callback) {
-                         window.setTimeout(callback, 1000/60);
-                    };
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.oRequestAnimationFrame ||
+            window.msRequestAnimaitonFrame ||
+            function (callback) {
+                window.setTimeout(callback, 1000 / 60);
+            };
     })();
 
     // Set up the canvas
     var canvas = document.getElementById("sig-canvas");
+    // canvas.width = document.body.clientWidth;
+    // canvas.height = document.body.clientHeight;
+    var parent = document.getElementById("canvas-parent");
+    canvas.width = parent.offsetWidth;
+    canvas.height = parent.offsetHeight;
+
     var ctx = canvas.getContext("2d");
     ctx.fillStyle = 'white';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+
     ctx.strokeStyle = "#000";
     ctx.lineWidth = 15;
 
     // Set up the UI
-    var sigText = document.getElementById("sig-dataUrl");
-    var sigImage = document.getElementById("sig-image");
     var clearBtn = document.getElementById("sig-clearBtn");
     var submitBtn = document.getElementById("sig-submitBtn");
 
     clearBtn.addEventListener("click", function (e) {
         clearCanvas();
-        sigText.innerHTML = "Data URL for your signature will go here!";
-        sigImage.setAttribute("src", "");
     }, false);
 
     submitBtn.addEventListener("click", function (e) {
         var dataUrl = canvas.toDataURL("image/png");
-        sigText.innerHTML = dataUrl;
-        sigImage.setAttribute("src", dataUrl);
         predict_doodle(dataUrl);
     }, false);
 
     // Set up mouse events for drawing
     var drawing = false;
-    var mousePos = { x:0, y:0 };
+    var mousePos = {
+        x: 0,
+        y: 0
+    };
     var lastPos = mousePos;
     canvas.addEventListener("mousedown", function (e) {
         drawing = true;
@@ -84,17 +90,23 @@ import { predict_doodle } from './api.js';
         if (e.target == canvas) {
             e.preventDefault();
         }
-    }, {passive: false});
+    }, {
+        passive: false
+    });
     document.body.addEventListener("touchend", function (e) {
         if (e.target == canvas) {
             e.preventDefault();
         }
-    }, {passive: false});
+    }, {
+        passive: false
+    });
     document.body.addEventListener("touchmove", function (e) {
         if (e.target == canvas) {
             e.preventDefault();
         }
-    }, {passive: false});
+    }, {
+        passive: false
+    });
 
     // Get the position of the mouse relative to the canvas
     function getMousePos(canvasDom, mouseEvent) {
@@ -131,7 +143,7 @@ import { predict_doodle } from './api.js';
     }
 
     // Allow for animation
-    (function drawLoop () {
+    (function drawLoop() {
         requestAnimFrame(drawLoop);
         renderCanvas();
     })();
