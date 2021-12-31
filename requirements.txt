@@ -4,3 +4,4 @@ flask
 Pillow
 opencv-python-headless==4.5.5.62
 gunicorn
+flask-cors
