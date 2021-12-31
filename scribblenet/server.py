@@ -16,5 +16,5 @@ def doodle_predict():
     return jsonify({"prediction": predict(image_string)})
 
 
-def main():
-    app.run(host="0.0.0.0", port=9000, debug=True)
+if __name__ == '__main__':
+    app.run(debug=False)
