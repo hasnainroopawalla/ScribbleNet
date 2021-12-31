@@ -38,20 +38,38 @@
     </div>
   </nav>
 
-  <div class="container-fluid h-100 p-4">
-    <div class="row justify-content-center h-100">
-      <div class="col-sm-4 hidden-md-down">
-        <button class="btn btn-primary" id="predictBtn">
-          Predict
-        </button>
-        <button class="btn btn-default" id="clearBtn">
-          Clear
-        </button>
+  <div class="container" data-aos="fade-up" id="demonstration">
+    <div class="row align-items-center mt-4">
+      <div class="col-md-6">
+        <h2>ScribbleNet</h2>
+        <p>Draw a Doodle in the canvas and the AI model (trained on over 70 distinct classes of everyday-objects) will attempt to predict what you drew.</p>
       </div>
-      <div class="col-sm-5 col-md-8 col-lg-8 col-xl-8" id="canvas-parent">
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-sm-5 col-md-7 col-lg-7 col-xl-7" id="canvas-parent">
         <canvas id="sig-canvas">
           Browser not supported.
         </canvas>
+      </div>
+      <div class="col-sm-5">
+        <div class="row justify-content-center mb-4">
+          <button class="btn btn-success mr-2" id="predictBtn">
+            Predict
+          </button>
+          <button class="btn btn-secondary" id="resetBtn">
+            Reset
+          </button>
+        </div>
+        <div class="row justify-content-center">
+          <ul class="list-group align-items-stretch">
+            <li class="list-group-item list-group-item-primary text-dark text-center d-inline-block">
+              <h4>Predictions</h4>
+            </li>
+            <li class="list-group-item text-center d-inline-block" id="prediction1">*Prediction 1*</li>
+            <li class="list-group-item text-center d-inline-block" id="prediction2">*Prediction 2*</li>
+            <li class="list-group-item text-center d-inline-block" id="prediction3">*Prediction 3*</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

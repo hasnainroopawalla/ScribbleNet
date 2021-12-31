@@ -1,7 +1,3 @@
-import {
-    predict_doodle
-} from './api.js';
-
 (function () {
 
     // Get a regular interval for drawing to the screen
@@ -21,7 +17,7 @@ import {
 
     var parent = document.getElementById("canvas-parent");
     canvas.width = parent.offsetWidth;
-    canvas.height = parent.offsetHeight;
+    canvas.height = 400;
 
     var ctx = canvas.getContext("2d");
     ctx.fillStyle = 'white';
@@ -30,14 +26,15 @@ import {
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
     ctx.strokeStyle = "#000";
-    ctx.lineWidth = 30;
+    ctx.lineWidth = 20;
 
     // Set up the UI
-    var clearBtn = document.getElementById("clearBtn");
+    var resetBtn = document.getElementById("resetBtn");
     var submitBtn = document.getElementById("predictBtn");
 
-    clearBtn.addEventListener("click", function (e) {
+    resetBtn.addEventListener("click", function (e) {
         clearCanvas();
+        clearPredictions();
     }, false);
 
     submitBtn.addEventListener("click", function (e) {
@@ -137,10 +134,20 @@ import {
         }
     }
 
-    // Clear the canvas
+    // Reset the canvas
     function clearCanvas() {
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.beginPath();
+    }
+
+    // Reset the predictions
+    function clearPredictions() {
+        var prediction1 = document.getElementById("prediction1");
+        var prediction2 = document.getElementById("prediction2");
+        var prediction3 = document.getElementById("prediction3");
+        prediction1.innerHTML = "*Prediction 1*";
+        prediction2.innerHTML = "*Prediction 2*";
+        prediction3.innerHTML = "*Prediction 3*";
     }
 
     // Allow for animation
@@ -150,3 +157,26 @@ import {
     })();
 
 })();
+
+function predict_doodle(image_string) {
+    $.ajax({
+        type: 'POST',
+        url: '/predict',
+        data: {
+            'image_string': image_string
+        },
+        success: function (result) {
+            display_results(String(result["prediction"]));
+        },
+    });
+};
+
+function display_results(result) {
+    var predictions = result.split(",");
+    var prediction1 = document.getElementById("prediction1");
+    var prediction2 = document.getElementById("prediction2");
+    var prediction3 = document.getElementById("prediction3");
+    prediction1.innerHTML = predictions[0];
+    prediction2.innerHTML = predictions[1];
+    prediction3.innerHTML = predictions[2];
+}
