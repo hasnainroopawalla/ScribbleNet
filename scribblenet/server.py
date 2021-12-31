@@ -16,7 +16,9 @@ def firstpage():
 @cross_origin()
 def doodle_predict():
     image_string = request.form["image_string"]
-    return jsonify({"prediction": predict(image_string)})
+    prediction = predict(image_string)
+    print(prediction)
+    return jsonify({"prediction": prediction})
 
 
 if __name__ == "__main__":
