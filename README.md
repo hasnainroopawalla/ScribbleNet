@@ -1,3 +1,50 @@
+<p align="center">
+    <img height=300 src="https://raw.githubusercontent.com/hasnainroopawalla/ShowML/master/static/images/showml.png" alt="ScribbleNet Logo">
+</p>
+
+---
+
+<h2 align="center">ScribbleNet</h2>
+
+<div align="center">
+
+[![Linting](https://github.com/hasnainroopawalla/ScribbleNet/actions/workflows/linting.yml/badge.svg)](https://github.com/hasnainroopawalla/ScribbleNet/actions/workflows/linting.yml)
+[![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
+![Status](https://img.shields.io/badge/status-stable-green.svg)
+</div>
+
+---
+
+Check out [the demo](https://www.hasnainr.com/projects/scribblenet.html#demonstration)!
+
+<i>ScribbleNet</i> is a Python library which classifies hand-drawn doodles and is trained on the [QuickDraw dataset (by Google)](https://github.com/googlecreativelab/quickdraw-dataset) consisting of 345 classes and over 100,000 doodles.
+
+This Python package is bundled as a REST API using [Flask](https://flask.palletsprojects.com/en/2.0.x/) and deployed on [Heroku](https://www.heroku.com/).
+
+The front-end is built using vanilla JavaScript, HTML and CSS.
+
+## 📝 Table of Contents
+
+- [Package Contents](#contents)
+- [Machine Learning Stuff](#ml)
+
+
+## 📦 Package Contents <a name = "contents"></a>
+
+<!-- - ### Models
+Linear
+  - Linear Regression (`showml.linear_model.regression.LinearRegression`)
+  - Logistic Regression (`showml.linear_model.regression.LogisticRegression`)
+
+- Non-Linear
+  - Sequential (`showml.deep_learning.model.Sequential`) -->
+
+
+## 🧮 Machine Learning Stuff <a name = "ml"></a>
+
+<!--
+
+
 # ScribbleNet - Play Store (Android)
 
 Download the Android App here: https://play.google.com/store/apps/details?id=doodle.classifier
@@ -52,3 +99,6 @@ Headphones:
 Lightning:
 
 ![Lightning](https://github.com/hasnainroopawalla/Doodle-Classifier/blob/master/images/lightning.gif)
+
+
+ -->
