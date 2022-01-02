@@ -1,5 +1,5 @@
 <p align="center">
-    <img height=300 src="https://raw.githubusercontent.com/hasnainroopawalla/ShowML/master/static/images/showml.png" alt="ScribbleNet Logo">
+    <!-- <img height=300 src="https://raw.githubusercontent.com/hasnainroopawalla/ShowML/master/static/images/showml.png" alt="ScribbleNet Logo"> -->
 </p>
 
 ---
@@ -24,24 +24,20 @@ This Python package is bundled as a REST API using [Flask](https://flask.pallets
 The front-end is built using vanilla JavaScript, HTML and CSS.
 
 ## 📝 Table of Contents
-
-- [Package Contents](#contents)
+- [Examples](#examples)
 - [Machine Learning Stuff](#ml)
 
 
-## 📦 Package Contents <a name = "contents"></a>
+## 📦 Examples <a name = "examples"></a>
 
-<!-- - ### Models
-Linear
-  - Linear Regression (`showml.linear_model.regression.LinearRegression`)
-  - Logistic Regression (`showml.linear_model.regression.LogisticRegression`)
-
-- Non-Linear
-  - Sequential (`showml.deep_learning.model.Sequential`) -->
-
+<!-- Add gifs/images here -->
 
 ## 🧮 Machine Learning Stuff <a name = "ml"></a>
 
+### Preprocessing
+- 3 pre-processing pipelines (for training, testing and predicting on external data) have been created. Refer to `scribblenet.preprocessor.PreProcessor` ([source](https://github.com/hasnainroopawalla/ScribbleNet/blob/2e81465971e7a387ce9bbf725bf6fea239fddd75/scribblenet/preprocessing/preprocessor.py#L15)).
+
+### Model
 <!--
 
 
