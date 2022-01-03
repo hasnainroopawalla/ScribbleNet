@@ -28,6 +28,8 @@ Download the Android App here ([Google Play](https://play.google.com/store/apps/
 
 To run locally:
 1.  ```
+    $ git clone https://github.com/hasnainroopawalla/ScribbleNet.git
+    $ pip install -r requirements.txt
     $ python3 scribblenet/server.py
     ```
 2. Navigate to `127.0.0.1:5000` in your browser.
