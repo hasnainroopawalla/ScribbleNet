@@ -3,8 +3,7 @@ from collections import Counter
 from typing import Dict, List, Tuple
 
 import numpy as np
-from scribblenet.ml.config import MLConfig
-from scribblenet.ml.utils import load_model
+from scribblenet.ml.utils import load_classes, load_model
 from scribblenet.preprocessing.preprocessor import PreProcessor
 
 
@@ -39,9 +38,10 @@ def _map_class_names_to_probabilities(probabilities: List[float]) -> Dict[str, f
     Returns:
         Dict[str, float]: A dictionary mapping all readable class names to their corresponding probabilites.
     """
+    classes = load_classes()
     return {
         class_name: probability
-        for class_name, probability in zip(MLConfig.classes, probabilities)
+        for class_name, probability in zip(classes, probabilities)
     }
 
 
@@ -77,7 +77,7 @@ def predict(image: str, num_best_classes: int = 5) -> List[str]:
        List[str]: A dictionary mapping predicted readable class names to their corresponding probabilites.
     """
     P = PreProcessor()
-    processed_image = P.preprocess(image, job_type="predict")
+    processed_image = P.predict_preprocess(image)
     model = load_model()
     prediction = model.predict(processed_image)[0]
 

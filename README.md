@@ -1,54 +1,45 @@
-# ScribbleNet - Play Store (Android)
-
-Download the Android App here: https://play.google.com/store/apps/details?id=doodle.classifier
+<h1 align="center">ScribbleNet</h1>
 
 
-# ScribbleNet
-
-The notebook includes downloading the classes.txt file as well as the entire dataset of 'Quick Draw' images
-
-The 100_classes.txt consists of 100 common classes (a subset of the 345 original classes)
-
-The number of images used per class is limited to 16000 to increase training speed
-
-With my architecture I achieved a Validation Accuracy of 96%
+[![Linting](https://github.com/hasnainroopawalla/ScribbleNet/actions/workflows/linting.yml/badge.svg)](https://github.com/hasnainroopawalla/ScribbleNet/actions/workflows/linting.yml)
+[![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
+![Status](https://img.shields.io/badge/status-stable-green.svg)
 
 
-# Instructions to train the model:
+Check out [the demo](https://www.hasnainr.com/projects/scribblenet.html#demonstration)!
 
-Run the Doodle.ipynb on Google Colab (GPU for more disk memory)
+<i>ScribbleNet</i> is Python library that classifies hand-drawn doodles into distinct classes (trained on the [QuickDraw dataset by Google](https://github.com/googlecreativelab/quickdraw-dataset)).
 
-# Instructions for Flask:
-In the command prompt:
-```
-python run.py
-```
-Now, Navigate to 'localhost:5000' on your browser
+This Python package is bundled as a REST API using [Flask](https://flask.palletsprojects.com/en/2.0.x/) and deployed on [Heroku](https://www.heroku.com/).
 
-# Android App:
+The front-end is built using vanilla JavaScript, HTML and CSS.
 
-Cup:
+Download the Android App here ([Google Play](https://play.google.com/store/apps/details?id=doodle.classifier)).
+>  The repository has recently been refactored and thus, the Android application currently doesn't work.
 
-![Cup](https://github.com/hasnainroopawalla/ScribbleNet/blob/master/images/cup.gif)
+## 📝 Table of Contents
+- [Getting Started](#gettingstarted)
+- [Machine Learning Stuff](#ml)
 
-Envelope:
 
-![Envelope](https://github.com/hasnainroopawalla/Doodle-Classifier/blob/master/images/envelope.gif)
+## 🏁 Getting Started <a name = "gettingstarted"></a>
+[Working demo](https://www.hasnainr.com/projects/scribblenet.html#demonstration)
 
-T-shirt:
 
-![Tshirt](https://github.com/hasnainroopawalla/Doodle-Classifier/blob/master/images/tshirt.gif)
+To run locally:
+1.  ```
+    $ python3 scribblenet/server.py
+    ```
+2. Navigate to `127.0.0.1:5000` in your browser.
 
-# Flask App:
 
-Suitcase:
+## 🧮 Machine Learning Stuff <a name = "ml"></a>
 
-![Suitcase](https://github.com/hasnainroopawalla/Doodle-Classifier/blob/master/images/suitcase.gif)
+### Pre-processing
+- Two pre-processing pipelines (for training, predicting on external data) have been created. Refer to `scribblenet.preprocessor.PreProcessor` ([source](https://github.com/hasnainroopawalla/ScribbleNet/blob/2e81465971e7a387ce9bbf725bf6fea239fddd75/scribblenet/preprocessing/preprocessor.py#L19)).
 
-Headphones:
-
-![Headphones](https://github.com/hasnainroopawalla/Doodle-Classifier/blob/master/images/headphones.gif)
-
-Lightning:
-
-![Lightning](https://github.com/hasnainroopawalla/Doodle-Classifier/blob/master/images/lightning.gif)
+### Training
+- A `Jupyter` notebook for training the model on the Quickdraw Dataset can be found [here](https://github.com/hasnainroopawalla/ScribbleNet/blob/master/scribblenet/ml/training.ipynb).
+- The notebook uses utility methods from the `scribblenet` package for loading and preprocessing the data.
+- The `load_classes()` method accepts `100` or `all` as an argument to indicate if 100 classes or all 345 classes should be loaded.
+- The `load_dataset()` method accepts `num_samples_per_class` as an argument to indicate how many samples of each class should be loaded.
