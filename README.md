@@ -36,10 +36,10 @@ To run locally:
 ## 🧮 Machine Learning Stuff <a name = "ml"></a>
 
 ### Pre-processing
-- Two pre-processing pipelines (for training, predicting on external data) have been created. Refer to `scribblenet.preprocessor.PreProcessor` ([source](https://github.com/hasnainroopawalla/ScribbleNet/blob/2e81465971e7a387ce9bbf725bf6fea239fddd75/scribblenet/preprocessing/preprocessor.py#L15)).
+- Two pre-processing pipelines (for training, predicting on external data) have been created. Refer to `scribblenet.preprocessor.PreProcessor` ([source](https://github.com/hasnainroopawalla/ScribbleNet/blob/2e81465971e7a387ce9bbf725bf6fea239fddd75/scribblenet/preprocessing/preprocessor.py#L19)).
 
 ### Training
-- A jupyter notebook for training a model on the Quickdraw Dataset can be found [here](https://github.com/hasnainroopawalla/ScribbleNet/blob/master/scribblenet/ml/training.ipynb).
+- A `Jupyter` notebook for training the model on the Quickdraw Dataset can be found [here](https://github.com/hasnainroopawalla/ScribbleNet/blob/master/scribblenet/ml/training.ipynb).
 - The notebook uses utility methods from the `scribblenet` package for loading and preprocessing the data.
 - The `load_classes()` method accepts `100` or `all` as an argument to indicate if 100 classes or all 345 classes should be loaded.
 - The `load_dataset()` method accepts `num_samples_per_class` as an argument to indicate how many samples of each class should be loaded.
