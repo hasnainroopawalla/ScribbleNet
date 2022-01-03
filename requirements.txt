@@ -7,3 +7,4 @@ gunicorn
 flask-cors
 matplotlib
 tqdm
+scikit-learn
