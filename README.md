@@ -15,7 +15,7 @@ This Python package is bundled as a REST API using [Flask](https://flask.pallets
 The front-end is built using vanilla JavaScript, HTML and CSS.
 
 Download the Android App here ([Google Play](https://play.google.com/store/apps/details?id=doodle.classifier)).
->  The repository has recently been through major refactoring and thus, the Android application is under maintenance.
+>  The repository has recently been refactored and thus, the Android application currently doesn't work.
 
 ## 📝 Table of Contents
 - [Getting Started](#gettingstarted)
