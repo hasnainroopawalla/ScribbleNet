@@ -4,7 +4,7 @@ import os
 
 class MLConfig:
     trained_model_path: str = os.path.join(
-        os.path.dirname(__file__), "models/best_model.h5"
+        os.path.dirname(__file__), "models/trained_model.h5"
     )
     image_dims: Tuple[int, int] = (28, 28)
     classes_path_100: str = os.path.join(
