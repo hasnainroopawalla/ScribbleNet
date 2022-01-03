@@ -36,7 +36,7 @@ To run locally:
 ## 🧮 Machine Learning Stuff <a name = "ml"></a>
 
 ### Pre-processing
-- Two pre-processing pipelines (for training, predicting on external data) have been created. Refer to `scribblenet.preprocessor.PreProcessor` ([source](https://github.com/hasnainroopawalla/ScribbleNet/blob/2e81465971e7a387ce9bbf725bf6fea239fddd75/scribblenet/preprocessing/preprocessor.py#L19)).
+- Two pre-processing pipelines (for training, predicting on external data) have been created. Refer to `scribblenet.preprocessor.PreProcessor` ([source](https://github.com/hasnainroopawalla/ScribbleNet/blob/b645e1c1299784faebbce4f7efbbdd67758bae0b/scribblenet/preprocessing/preprocessor.py#L19)).
 
 ### Training
 - A `Jupyter` notebook for training the model on the Quickdraw Dataset can be found [here](https://github.com/hasnainroopawalla/ScribbleNet/blob/master/scribblenet/ml/training.ipynb).
