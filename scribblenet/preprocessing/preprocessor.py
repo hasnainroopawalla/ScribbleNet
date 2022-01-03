@@ -17,6 +17,9 @@ from scribblenet.preprocessing.utils import (
 
 
 class PreProcessor:
+    """A class which preprocesses the data.
+    """
+
     def __init__(self) -> None:
         self.train_pipeline: List[Callable] = [
             training_reshape_image,
@@ -44,6 +47,17 @@ class PreProcessor:
         y_train: np.ndarray,
         y_test: np.ndarray,
     ) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+        """Runs the training pipeline on the dataset.
+
+        Args:
+            X_train (np.ndarray): Train data.
+            X_test (np.ndarray): Test data.
+            y_train (np.ndarray): Train labels.
+            y_test (np.ndarray): Test labels.
+
+        Returns:
+            Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]: The preprocessed dataset.
+        """
         for job in self.train_pipeline:
             X_train, X_test, y_train, y_test = job(X_train, X_test, y_train, y_test)
         return X_train, X_test, y_train, y_test

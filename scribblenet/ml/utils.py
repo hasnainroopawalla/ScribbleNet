@@ -39,10 +39,14 @@ def _create_dataset_directory():
 
 
 def download_dataset(class_names: List[str]):
+    """Downloads the Quickdraw dataset by Google.
+
+    Args:
+        class_names (List[str]): A List of clases whose data needs to be downloaded.
+    """
     _create_dataset_directory()
     for index, class_name in tqdm(enumerate(class_names), total=len(class_names)):
         class_url = class_name.replace("_", "%20")
-        # print(index, class_name, class_url)
         url = MLConfig.dataset_url + class_url + ".npy"
         local_path = MLConfig.dataset_path + class_name + ".npy"
         urlretrieve(url, local_path)
@@ -51,6 +55,18 @@ def download_dataset(class_names: List[str]):
 def load_dataset(
     num_samples_per_class: int = 16000, test_size: float = 0.33
 ) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+    """Loads the downloaded data.
+
+    Args:
+        num_samples_per_class (int, optional): The number of images to be used from each class for training. Defaults to 16000.
+        test_size (float, optional): The percentage of images to be used for testing. Defaults to 0.33.
+
+    Returns:
+        np.ndarray: Train data.
+        np.ndarray: Test data.
+        ynp.ndarray: Train labels.
+        np.ndarray: Test labels.
+    """
     dataset = sorted(glob.glob(os.path.join(MLConfig.dataset_path, "*.npy")))
 
     # Initialize variables
@@ -59,7 +75,6 @@ def load_dataset(
 
     # Load each class file
     for idx, class_name in tqdm(enumerate(dataset), total=len(dataset)):
-        # print(idx, class_name)
         data = np.load(class_name)
         data = data[0:num_samples_per_class, :]
         labels = np.full(data.shape[0], idx)
