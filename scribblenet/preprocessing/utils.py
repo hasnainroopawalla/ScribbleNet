@@ -188,6 +188,6 @@ def one_hot_encode_labels(
     Returns:
         Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]: The one hot encoded (labels) dataset.
     """
-    y_train = to_categorical(y_train, MLConfig.num_classes)
-    y_test = to_categorical(y_test, MLConfig.num_classes)
+    y_train = to_categorical(y_train)
+    y_test = to_categorical(y_test)
     return X_train, X_test, y_train, y_test

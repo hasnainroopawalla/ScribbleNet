@@ -21,13 +21,20 @@ def load_model() -> Sequential:
     return tf.keras.models.load_model(MLConfig.trained_model_path)
 
 
-def load_classes() -> List[str]:
+def load_classes(num_classes: str = "100") -> List[str]:
     """Loads the class names from the specified local path.
 
+    Args:
+        num_classes (str): Specifies the number of classes to be loaded (can be '100' or 'all').
     Returns:
         List[str]: A list of class names sorted alphabetically.
     """
-    with open(MLConfig.classes_path, "r") as f:
+    with open(
+        MLConfig.classes_path_100
+        if num_classes == "100"
+        else MLConfig.classes_path_all,
+        "r",
+    ) as f:
         classes = [class_name.rstrip("\n") for class_name in f]
     return sorted(classes)
 
