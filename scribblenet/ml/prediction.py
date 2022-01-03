@@ -77,7 +77,7 @@ def predict(image: str, num_best_classes: int = 5) -> List[str]:
        List[str]: A dictionary mapping predicted readable class names to their corresponding probabilites.
     """
     P = PreProcessor()
-    processed_image = P.preprocess(image, job_type="predict")
+    processed_image = P.predict_preprocess(image)
     model = load_model()
     prediction = model.predict(processed_image)[0]
 

@@ -1,4 +1,6 @@
-from typing import Callable, Dict, List
+from typing import Callable, List, Tuple
+import numpy as np
+
 from scribblenet.preprocessing.utils import (
     add_dims_to_array,
     convert_to_grayscale,
@@ -8,13 +10,19 @@ from scribblenet.preprocessing.utils import (
     invert_image,
     normalize_pixel_values,
     resize_image,
+    training_normalize_pixel_values,
+    training_reshape_image,
+    one_hot_encode_labels,
 )
-import numpy as np
 
 
 class PreProcessor:
     def __init__(self) -> None:
-        self.train_pipeline: List[Callable] = []
+        self.train_pipeline: List[Callable] = [
+            training_reshape_image,
+            training_normalize_pixel_values,
+            one_hot_encode_labels,
+        ]
 
         self.test_pipeline: List[Callable] = []
 
@@ -29,14 +37,19 @@ class PreProcessor:
             normalize_pixel_values,
         ]
 
-        self.job_to_pipeline_map: Dict[str, List[Callable]] = {
-            "train": self.train_pipeline,
-            "test": self.test_pipeline,
-            "predict": self.predict_pipeline,
-        }
+    def train_preprocess(
+        self,
+        X_train: np.ndarray,
+        X_test: np.ndarray,
+        y_train: np.ndarray,
+        y_test: np.ndarray,
+    ) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+        for job in self.train_pipeline:
+            X_train, X_test, y_train, y_test = job(X_train, X_test, y_train, y_test)
+        return X_train, X_test, y_train, y_test
 
-    def preprocess(self, image: str, job_type: str = "predict") -> np.ndarray:
-        """Runs the desired pipeline on an image.
+    def predict_preprocess(self, image: str) -> np.ndarray:
+        """Runs the prediction pipeline on an image.
 
         Args:
             image (str): The input image(s).
@@ -45,6 +58,6 @@ class PreProcessor:
         Returns:
             np.ndarray: The preprocessed image(s).
         """
-        for job in self.job_to_pipeline_map[job_type]:
+        for job in self.predict_pipeline:
             image = job(image)
         return image  # type: ignore

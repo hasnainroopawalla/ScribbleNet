@@ -1,9 +1,13 @@
 import base64
+from typing import Tuple
 from PIL import PngImagePlugin, Image, ImageOps
 from io import BytesIO
 import numpy as np
 from keras.preprocessing.image import img_to_array
 import cv2
+from tensorflow.keras.utils import to_categorical
+
+from scribblenet.ml.config import MLConfig
 
 
 def _handle_base64_string_header(base64_img_string: str) -> str:
@@ -55,7 +59,7 @@ def resize_image(image: PngImagePlugin.PngImageFile) -> Image.Image:
     Returns:
         Image.Image: The resized image.
     """
-    return image.resize((28, 28))
+    return image.resize(MLConfig.image_dims)
 
 
 def invert_image(image: Image.Image) -> Image.Image:
@@ -107,10 +111,10 @@ def add_dims_to_array(image: np.ndarray) -> np.ndarray:
     """
     img_grayscale_channeled = np.expand_dims(
         image, axis=2
-    )  # Add last channel as 1 (28,28) to (28,28,1)
+    )  # Add last channel as 1 (28, 28) to (28, 28, 1)
     return np.expand_dims(
         img_grayscale_channeled, axis=0
-    )  # Add frist channel to specify number of input images (1,28,28,1)
+    )  # Add frist channel to specify number of input images (1, 28, 28, 1)
 
 
 def normalize_pixel_values(image: np.ndarray) -> np.ndarray:
@@ -123,3 +127,34 @@ def normalize_pixel_values(image: np.ndarray) -> np.ndarray:
         np.ndarray: The normalized image tensor.
     """
     return image / 255.0
+
+
+def training_reshape_image(
+    X_train: np.ndarray, X_test: np.ndarray, y_train: np.ndarray, y_test: np.ndarray
+) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+    X_train = X_train.reshape(
+        X_train.shape[0], MLConfig.image_dims[0], MLConfig.image_dims[1], 1
+    )
+    X_test = X_test.reshape(
+        X_test.shape[0], MLConfig.image_dims[0], MLConfig.image_dims[1], 1
+    )
+    return X_train, X_test, y_train, y_test
+
+
+def training_normalize_pixel_values(
+    X_train: np.ndarray, X_test: np.ndarray, y_train: np.ndarray, y_test: np.ndarray
+) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+    return (
+        normalize_pixel_values(X_train),
+        normalize_pixel_values(X_test),
+        y_train,
+        y_test,
+    )
+
+
+def one_hot_encode_labels(
+    X_train: np.ndarray, X_test: np.ndarray, y_train: np.ndarray, y_test: np.ndarray
+) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+    y_train = to_categorical(y_train, MLConfig.num_classes)
+    y_test = to_categorical(y_test, MLConfig.num_classes)
+    return X_train, X_test, y_train, y_test

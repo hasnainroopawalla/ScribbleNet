@@ -17,7 +17,7 @@
 
 Check out [the demo](https://www.hasnainr.com/projects/scribblenet.html#demonstration)!
 
-<i>ScribbleNet</i> is a Python library which classifies hand-drawn doodles and is trained on the [QuickDraw dataset (by Google)](https://github.com/googlecreativelab/quickdraw-dataset) consisting of 345 classes and over 100,000 doodles.
+<i>ScribbleNet</i> is a Python library that classifies hand-drawn doodles and is trained on the [QuickDraw dataset (by Google)](https://github.com/googlecreativelab/quickdraw-dataset) consisting of 345 classes and over 100,000 doodles.
 
 This Python package is bundled as a REST API using [Flask](https://flask.palletsprojects.com/en/2.0.x/) and deployed on [Heroku](https://www.heroku.com/).
 

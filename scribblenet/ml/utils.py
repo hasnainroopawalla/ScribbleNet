@@ -18,7 +18,7 @@ def load_model() -> Sequential:
     Returns:
         Sequential: The loaded model.
     """
-    return tf.keras.models.load_model(MLConfig.model_path)
+    return tf.keras.models.load_model(MLConfig.trained_model_path)
 
 
 def load_classes() -> List[str]:

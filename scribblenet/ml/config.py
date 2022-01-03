@@ -1,9 +1,11 @@
-from typing import List
+from typing import List, Tuple
 import os
 
 
 class MLConfig:
-    model_path: str = os.path.join(os.path.dirname(__file__), "models/e25.h5")
+    trained_model_path: str = os.path.join(os.path.dirname(__file__), "models/e25.h5")
+    num_classes: int = 100
+    image_dims: Tuple[int, int] = (28, 28)
     classes_path: str = os.path.join(
         os.path.dirname(__file__), "classes/100_classes.txt"
     )
