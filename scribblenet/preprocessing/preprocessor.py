@@ -27,8 +27,6 @@ class PreProcessor:
             one_hot_encode_labels,
         ]
 
-        self.test_pipeline: List[Callable] = []
-
         self.predict_pipeline: List[Callable] = [
             decode_base64_image_string,
             convert_to_png,
