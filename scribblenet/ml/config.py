@@ -14,7 +14,7 @@ class MLConfig:
         os.path.dirname(__file__), "classes/all_classes.txt"
     )
     dataset_url: str = "https://storage.googleapis.com/quickdraw_dataset/full/numpy_bitmap/"
-    dataset_path: str = "data/"
+    dataset_path: str = os.path.join(os.path.dirname(__file__), "data/")
     classes: List[str] = [
         "Smiley Face",
         "Alarm Clock",
