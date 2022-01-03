@@ -66,6 +66,18 @@ def _get_best_class_names(
     return list(best_class_names_to_probabilities.keys())
 
 
+def _format_predicted_class_strings(class_names: List[str]) -> List[str]:
+    """Format the class names by replacing underscores with spaces and capitilize every word's first letter.
+
+    Args:
+        class_names (List[str]): A List of class names.
+
+    Returns:
+        List[str]: A List of formatted class names.
+    """
+    return [class_name.replace("_", " ").title() for class_name in class_names]
+
+
 def predict(image: str, num_best_classes: int = 5) -> List[str]:
     """Predict the top 'num_best_classes' given an input image.
 
@@ -82,4 +94,7 @@ def predict(image: str, num_best_classes: int = 5) -> List[str]:
     prediction = model.predict(processed_image)[0]
 
     class_names_to_probabilities = _map_class_names_to_probabilities(prediction)
-    return _get_best_class_names(class_names_to_probabilities, num_best_classes)
+    best_class_names = _get_best_class_names(
+        class_names_to_probabilities, num_best_classes
+    )
+    return _format_predicted_class_strings(best_class_names)
